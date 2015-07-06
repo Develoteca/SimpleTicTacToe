@@ -1,14 +1,14 @@
 var turno="o";
 var cantidadOpciones=3;
-CrearComponentesJuego();
+var Juego="tictactoe";
 
+CrearComponentesJuego();
 $( ".pieza" ).click(function() {
     $(this).val(turno);
     cotejar(); 
     turno=(turno=="o")?"x":"o";
     $('#turnoDisplay').val(turno);
 });
-
 function cotejar(){
     for(i=1;i<=cantidadOpciones;i++){
 	for(j=1;j<=cantidadOpciones;j++){
@@ -74,18 +74,18 @@ function cotejar(){
         Reiniciar();
     }
 function CrearComponentesJuego(){
-$("#tictactoe").append('<div class="alert alert-dismissible alert-warning collapse"><button type="button" class="close" onclick="cerrarAlert()">×</button><div id="alertMensaje"></div></div>');
+$("#"+Juego).append('<div class="alert alert-dismissible alert-warning collapse"><button type="button" class="close" onclick="cerrarAlert()">×</button><div id="alertMensaje"></div></div>');
     
     for(i=1;i<=cantidadOpciones;i++){
 	for(j=1;j<=cantidadOpciones;j++){
-        $("#tictactoe").append( "<input class='pieza btn btn-primary btn-lg' type='button' value='-' id='"+i+j+"'/>" );
+        $("#"+Juego).append( "<input class='pieza btn btn-primary btn-lg' type='button' value='-' id='"+i+j+"'/>" );
 	   }
-        $("#tictactoe").append( "<hr style='  margin: 7px;'/>" );
-    }$("#tictactoe").append('<br/>');
-         $("#tictactoe").append('<span class=" well"><strong>Turno:</strong> <input class="btn btn-warning" id="turnoDisplay" type="button" value="o"></span>');
-        $("#tictactoe").append('<br/>');
-        $("#tictactoe").append('<br/>');
-        $("#tictactoe").append('<input type="button" id="iniciar" onclick="Reiniciar()" value="Reiniciar" class="btn btn-danger btn-lg disabled"/>');
+        $("#"+Juego).append( "<hr style='  margin: 7px;'/>" );
+    }$("#"+Juego).append('<br/>');
+         $("#"+Juego).append('<span class=" well"><strong>Turno:</strong> <input class="btn btn-warning" id="turnoDisplay" type="button" value="o"></span>');
+        $("#"+Juego).append('<br/>');
+        $("#"+Juego).append('<br/>');
+        $("#"+Juego).append('<input type="button" id="iniciar" onclick="Reiniciar()" value="Reiniciar" class="btn btn-danger btn-lg disabled"/>');
         }
     
     
